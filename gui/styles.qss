@@ -1,3 +1,4 @@
+/* gui/styles.qss */
 QMainWindow {
     background-color: #f4f6f9;
 }
@@ -6,24 +7,51 @@ QGroupBox {
     font-weight: bold;
     border: 1px solid #d1d9e6;
     border-radius: 8px;
+    margin-top: 10px;
     background-color: #ffffff;
     padding: 15px;
-    margin-top: 10px;
 }
 
 QGroupBox::title {
     subcontrol-origin: margin;
-    left: 10px;
+    subcontrol-position: top left;
     padding: 0 5px;
     color: #2c3e50;
+    font-size: 14px;
 }
 
-QLineEdit, QComboBox, QSpinBox {
+QLabel {
+    color: #34495e;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+QLineEdit, QComboBox, QDoubleSpinBox, QSpinBox {
     border: 1px solid #bdc3c7;
     border-radius: 4px;
     padding: 6px;
     background-color: #fdfdfd;
-    min-width: 150px;
+    font-size: 13px;
+    color: #2c3e50;
+}
+
+/* FIX: Ensure Dropdown Arrow is visible */
+QComboBox::drop-down {
+    border: 0px;
+}
+QComboBox::down-arrow {
+    image: none;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 5px solid #2c3e50;
+    width: 0;
+    height: 0;
+    margin-right: 8px;
+}
+
+QLineEdit:focus, QComboBox:focus {
+    border: 1px solid #3498db;
+    background-color: #ffffff;
 }
 
 QPushButton#PredictBtn {
@@ -32,12 +60,16 @@ QPushButton#PredictBtn {
     border: none;
     border-radius: 6px;
     padding: 12px;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: bold;
 }
 
 QPushButton#PredictBtn:hover {
     background-color: #3498db;
+}
+
+QPushButton#PredictBtn:pressed {
+    background-color: #1f618d;
 }
 
 QLabel#ResultLabel {
@@ -47,7 +79,7 @@ QLabel#ResultLabel {
 }
 
 QLabel#RiskLabel {
-    font-size: 14px;
-    color: #7f8c8d;
+    font-size: 16px;
+    font-weight: bold;
     qproperty-alignment: AlignCenter;
 }
